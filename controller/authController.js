@@ -45,14 +45,6 @@ class AuthController {
             res.status(400).json({ message: "Ошибка авторизации!" })
         }
     }
-
-    async getUsers(req, res) {
-        try {
-            res.json("server worked")
-        } catch (e) {
-            console.log(e)
-        }
-    }
 }
 
 module.exports = new AuthController()
