@@ -15,7 +15,7 @@ class AuthController {
         try {
             const { name, surname, email, password, role } = req.body
             const candidate = await db.query('SELECT * FROM _user where email = $1', [email])
-            if (candidate.rows.length != 0) {
+            if (candidate.rows.length !== 0) {
                 return res.status(400).json({ message: 'Пользователь с такой почтой уже зарегистрирован!' })
             }
             const hashPassword = bcrypt.hashSync(password, 7);
